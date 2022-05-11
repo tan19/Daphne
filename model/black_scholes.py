@@ -18,6 +18,7 @@ class BlackScholes():
         self.vol = np.array([0.16])
     
     def plot(self, prop, values):
+        current_values = self.__dict__[prop]
         self.__dict__[prop] = values
 
         plt.subplot(2, 2, 1) # row 1, col 2 index 1
@@ -43,6 +44,8 @@ class BlackScholes():
         plt.title("Vega")
         plt.xlabel(prop)
         plt.ylabel('Vega')
+
+        self.__dict__[prop] = current_values # restore
 
     @property
     def d1(self):
