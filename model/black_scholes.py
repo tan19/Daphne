@@ -16,31 +16,32 @@ class BlackScholes():
         self.div = np.array([0.00])
         
         self.vol = np.array([0.16])
+    
+    def plot(self, prop, values):
+        self.__dict__[prop] = values
 
-    @property
-    def plot(self):
         plt.subplot(2, 2, 1) # row 1, col 2 index 1
-        plt.plot(self.spot, self.delta)
+        plt.plot(self.__dict__[prop], self.delta)
         plt.title("Delta")
-        plt.xlabel('Spot')
+        plt.xlabel(prop)
         plt.ylabel('Delta')
 
         plt.subplot(2, 2, 2) # row 1, col 2 index 1
-        plt.plot(self.spot, self.gamma)
+        plt.plot(self.__dict__[prop], self.gamma)
         plt.title("Gamma")
-        plt.xlabel('Spot')
+        plt.xlabel(prop)
         plt.ylabel('Gamma')
 
         plt.subplot(2, 2, 3) # row 1, col 2 index 1
-        plt.plot(self.spot, self.theta)
+        plt.plot(self.__dict__[prop], self.theta)
         plt.title("Theta")
-        plt.xlabel('Spot')
+        plt.xlabel(prop)
         plt.ylabel('Theta')
 
         plt.subplot(2, 2, 4) # row 1, col 2 index 1
-        plt.plot(self.spot, self.vega)
+        plt.plot(self.__dict__[prop], self.vega)
         plt.title("Vega")
-        plt.xlabel('Spot')
+        plt.xlabel(prop)
         plt.ylabel('Vega')
 
     @property
